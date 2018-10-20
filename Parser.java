@@ -18,7 +18,7 @@ public class Parser {
 		Arvore arvore = null;
 		while (i < str.length()) {
 			char c = str.charAt(i);
-			if (c == '/' || c == '*' || c == '+' || c == '*') {
+			if (c == '/' || c == '*' || c == '+' || c == '-') {
 				i ++;
 				Arvore esq = arvore;
 				Arvore dir = parse();
@@ -29,11 +29,10 @@ public class Parser {
 				i ++;
 				arvore = parse();
 				i ++;
-				break;
 			} else if (c == ')') {
 				break;
 			} else {
-				break;
+				return null;
 			}
 		}
 		return arvore;
